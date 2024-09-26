@@ -21,7 +21,7 @@ spec:
                   - key: akuity.io/argo-cd-cluster-name
                     operator: NotIn
                     values: [in-cluster]
-                  - key: enable_postgres_operator
+                  - key: enable_pgo
                     operator: In
                     values: ['true']
           - clusters:
