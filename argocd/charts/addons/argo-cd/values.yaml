@@ -58,11 +58,16 @@ server:
 
 configs:
   repositories:
-    # Required when using helm repository with oci formal like karpenter and aws-gateway-api-controller
+    # Required when using helm repository with oci formal like karpenter and aws-gateway-api-controller and pgo
     aws-public-ecr:
       name: aws-public-ecr
       type: helm
       url: public.ecr.aws
+      enableOCI: 'true'
+    crunchydata:
+      name: crunchydata
+      type: helm
+      url: registry.developers.crunchydata.com
       enableOCI: 'true'
   cm:
     application.resourceTrackingMethod: 'annotation' #use annotation for tracking required for Crossplane
