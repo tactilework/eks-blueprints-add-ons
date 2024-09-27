@@ -15,7 +15,7 @@ spec:
                 addonChart: pgo
                 # anything not staging or prod use this version
                 addonChartVersion: 5.6.1
-                addonChartRepository: https://testOrgDoNotUse.github.io/charts
+                addonChartRepository: oci://registry.developers.crunchydata.com/crunchydata/pgo
               selector:
                 matchExpressions:
                   - key: akuity.io/argo-cd-cluster-name
