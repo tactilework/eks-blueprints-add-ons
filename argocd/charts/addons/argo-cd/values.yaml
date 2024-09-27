@@ -67,7 +67,7 @@ configs:
     crunchydata:
       name: crunchydata
       type: helm
-      url: registry.developers.crunchydata.com
+      url: registry.developers.crunchydata.com/crunchydata
       enableOCI: 'true'
   cm:
     application.resourceTrackingMethod: 'annotation' #use annotation for tracking required for Crossplane
