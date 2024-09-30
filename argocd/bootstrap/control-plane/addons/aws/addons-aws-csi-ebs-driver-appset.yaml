@@ -55,17 +55,6 @@ spec:
               - $values/{{metadata.annotations.addons_repo_basepath}}charts/addons/{{values.addonChart}}/values.yaml
               - $values/{{metadata.annotations.addons_repo_basepath}}environments/{{metadata.labels.environment}}/addons/{{values.addonChart}}/values.yaml
               - $values/{{metadata.annotations.addons_repo_basepath}}clusters/{{name}}/addons/{{values.addonChart}}/values.yaml
-            values: |
-              controller:
-                serviceAccount:
-                  name: {{metadata.annotations.aws_ebs_csi_driver_controller_service_account}}
-                  annotations:
-                    eks.amazonaws.com/role-arn: {{metadata.annotations.aws_ebs_csi_driver_iam_role_arn}}
-              node:
-                serviceAccount:
-                  name: {{metadata.annotations.aws_ebs_csi_driver_node_service_account}}
-                  annotations:
-                    eks.amazonaws.com/role-arn: {{metadata.annotations.aws_ebs_csi_driver_iam_role_arn}}
       destination:
         namespace: '{{metadata.annotations.aws_ebs_csi_driver_namespace}}'
         name: '{{name}}'
