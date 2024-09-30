@@ -3,6 +3,8 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: addons-aws-ebs-csi-driver
+  annotations:
+    argocd.argoproj.io/compare-options: ServerSideDiff=true
 spec:
   syncPolicy:
     preserveResourcesOnDeletion: true
