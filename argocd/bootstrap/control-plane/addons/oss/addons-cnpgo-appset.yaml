@@ -14,7 +14,7 @@ spec:
               values:
                 addonChart: pgo
                 # anything not staging or prod use this version
-                addonChartVersion: 0.22.0
+                addonChartVersion: 0.22.1
                 addonChartReleaseName: cloudnative-pg
                 addonChartRepositoryNamespace: cnpg
                 addonChartRepository: https://cloudnative-pg.github.io/charts
@@ -31,13 +31,13 @@ spec:
                 matchLabels:
                   environment: staging
               values:
-                addonChartVersion: 0.22.0
+                addonChartVersion: 0.22.1
           - clusters:
               selector:
                 matchLabels:
                   environment: prod
               values:
-                addonChartVersion: 0.22.0
+                addonChartVersion: 0.22.1
   template:
     metadata:
       name: addon-{{name}}-{{values.addonChart}}
