@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: addons-pgo
+  name: addons-cnpgo
 spec:
   syncPolicy:
     preserveResourcesOnDeletion: true
@@ -14,16 +14,16 @@ spec:
               values:
                 addonChart: pgo
                 # anything not staging or prod use this version
-                addonChartVersion: 5.6.1
-                addonChartReleaseName: pgo
-                addonChartRepositoryNamespace: crunchydata
-                addonChartRepository: registry.developers.crunchydata.com/crunchydata
+                addonChartVersion: 0.22.0
+                addonChartReleaseName: cloudnative-pg
+                addonChartRepositoryNamespace: cnpg
+                addonChartRepository: https://cloudnative-pg.github.io/charts
               selector:
                 matchExpressions:
                   - key: akuity.io/argo-cd-cluster-name
                     operator: NotIn
                     values: [in-cluster]
-                  - key: enable_pgo
+                  - key: enable_cnpgo
                     operator: In
                     values: ['true']
           - clusters:
@@ -31,13 +31,13 @@ spec:
                 matchLabels:
                   environment: staging
               values:
-                addonChartVersion: 5.6.1
+                addonChartVersion: 0.22.0
           - clusters:
               selector:
                 matchLabels:
                   environment: prod
               values:
-                addonChartVersion: 5.6.1
+                addonChartVersion: 0.22.0
   template:
     metadata:
       name: addon-{{name}}-{{values.addonChart}}
