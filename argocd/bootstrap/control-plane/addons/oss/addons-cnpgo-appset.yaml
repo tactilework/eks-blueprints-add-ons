@@ -12,7 +12,7 @@ spec:
         generators:
           - clusters:
               values:
-                addonChart: pgo
+                addonChart: cloudnative-pg
                 # anything not staging or prod use this version
                 addonChartVersion: 0.22.1
                 addonChartReleaseName: cloudnative-pg
