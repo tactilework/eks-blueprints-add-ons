@@ -51,17 +51,6 @@ spec:
           helm:
             releaseName: "{{values.addonChart}}"
             ignoreMissingValueFiles: true
-            values: |
-              ingress:
-                enabled: true
-                ingressClassName: alb
-                annotations:
-                  kubernetes.io/ingress.class: alb
-                  alb.ingress.kubernetes.io/scheme: internet-facing
-                  alb.ingress.kubernetes.io/target-type: instance 
-                  alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
-                hosts:
-                  - internal.tactile.work
             valueFiles:
               - $values/{{metadata.annotations.addons_repo_basepath}}charts/addons/{{values.addonChart}}/values.yaml
               - $values/{{metadata.annotations.addons_repo_basepath}}environments/{{metadata.labels.environment}}/addons/{{values.addonChart}}/values.yaml
