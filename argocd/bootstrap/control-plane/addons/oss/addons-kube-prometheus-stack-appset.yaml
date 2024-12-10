@@ -55,6 +55,16 @@ spec:
               - $values/{{metadata.annotations.addons_repo_basepath}}charts/addons/{{values.addonChart}}/values.yaml
               - $values/{{metadata.annotations.addons_repo_basepath}}environments/{{metadata.labels.environment}}/addons/{{values.addonChart}}/values.yaml
               - $values/{{metadata.annotations.addons_repo_basepath}}clusters/{{name}}/addons/{{values.addonChart}}/values.yaml
+            values: |
+              grafana:
+                admin:
+                  existingSecret: grafana-password
+                  userKey: user
+                  passwordKey: password
+                service:
+                  type: NodePort
+                  port: 80
+
       destination:
         namespace: "{{values.addonChart}}"
         name: "{{name}}"
